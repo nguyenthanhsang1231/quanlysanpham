@@ -1,12 +1,21 @@
 package QuanLySanPham;
 
+import QuanLySanPham.dto.ReadAndWriteFile;
+
 import java.util.ArrayList;
 
 public class ProductManager {
-    ArrayList<Product> list = new ArrayList<>();
 
+    ArrayList<Product> list = new ArrayList<>();
+    private ReadAndWriteFile readAndWriteFile;
+
+    public ProductManager() {
+        readAndWriteFile = new ReadAndWriteFile();
+        this.list = readAndWriteFile.readFile();
+    }
     public void addProduct(Product product) {
         this.list.add(product);
+        readAndWriteFile.WriteFile(list);
     }
     public void editProduct(int id, Product product) {
         int index = findIndexById(id);
