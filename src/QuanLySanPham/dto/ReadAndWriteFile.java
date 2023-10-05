@@ -9,7 +9,7 @@ public class ReadAndWriteFile {
     File file = new File("data/product.csv");
     public void WriteFile(ArrayList<Product> list) {
         try {
-            FileWriter fileWriter = new FileWriter("product.csv");
+            FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             String line = "";
             for (Product product : list) {
